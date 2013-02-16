@@ -4,8 +4,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7DB14BC4-9C79-465E-8C55-5FD1CEB701F3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{B9F8253D-031E-4EB3-A868-C4131477A203}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HashProvider</RootNamespace>
     <AssemblyName>HashProvider</AssemblyName>
@@ -13,7 +13,6 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,18 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Security\SHA256L100HashProvider.cs" />
-    <Compile Include="Security\RIPEMD160HashProvider.cs" />
-    <Compile Include="Security\SHA512HashProvider.cs" />
-    <Compile Include="Security\SHA384HashProvider.cs" />
-    <Compile Include="Security\SHA256HashProvider.cs" />
-    <Compile Include="Security\SHA1HashProvider.cs" />
-    <Compile Include="Security\HashProvider.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="HashProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="RIPEMD160HashProvider.cs" />
+    <Compile Include="SHA1HashProvider.cs" />
+    <Compile Include="SHA256HashProvider.cs" />
+    <Compile Include="SHA256L100HashProvider.cs" />
+    <Compile Include="SHA384HashProvider.cs" />
+    <Compile Include="SHA512HashProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
