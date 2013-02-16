@@ -15,7 +15,7 @@ Bear in mind that `provider.GetSalt()` returns `byte[]` not `string`, so if you 
     var salt = provider.GetSalt(); // returns byte[]
     var saltStr = provider.GetString(salt); // returns string
 
-You can also set the salt length, default is set to 8 characters, you can either change the value for all salts or just for a single salt.
+You can also set the `SaltLength`, default is set to 8 characters, you can either change the value for all salts or just for a single salt.
 
     provider.SaltLength = 16; 
     var salt = provider.GetSalt(16);
@@ -31,26 +31,26 @@ To convert to/from bytes/strings:
 
 ## HashProviders
 
-There are already four Secure Hash Algorithms (SHA) implemented, SHA1 and three SHA2 algorithms.
+There are four Secure Hash Algorithms (SHA) implemented; SHA1, SHA256, SHA384, and SHA512.
 
     SHA1HashProvider()
     SHA256HashProvider()
     SHA384HashProvider()
     SHA512HashProvider()
 
-RIPEMD-160 (RACE Integrity Primitives Evaluation Message Digest) 160-bit MD algorithm:
+RIPEMD-160 (RACE Integrity Primitives Evaluation Message Digest) 160-bit MD algorithm.
 
     RIPEMD160HashProvider()
 
-And a custom SHA256 hash that loops 100 times for extra saltyness!
+And a custom SHA256 hash that loops 100 times for extra saltiness!
 
     SHA256L100HashProvider()
 
 ## Custom HashProviders
 
-It is easy to write your own custom hash provider, let us take a look at `SHA1HashProvider`.
+It's easy to write your own custom hash provider, let us take a look at `SHA1HashProvider`.
 
-We implement `HashProvider`, which gives us a property and four methods.
+We extend `HashProvider`, which gives us a property and four methods that we have to implement.
 
 `HashLength` should return the length of the hash when computed.
 
@@ -58,7 +58,7 @@ We implement `HashProvider`, which gives us a property and four methods.
 
 `GetSalt(int length)` should return a salt of the length provided.
 
-`GetHash(byte[] data, byte[] salt)` should return a hash from the data and salt provided in the format `byte[]`.
+`GetHash(byte[] data, byte[] salt)` should return a hash in the format `byte[]` from the data and salt provided.
 
 `GetHash(string data, byte[] salt)` should, for convenience, return a hash in string format.
 
