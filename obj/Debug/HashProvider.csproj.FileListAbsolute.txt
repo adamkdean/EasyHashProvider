@@ -1,5 +1,0 @@
-D:\Dropbox\Coding\Projects\HashProvider\HashProvider\bin\Debug\HashProvider.dll
-D:\Dropbox\Coding\Projects\HashProvider\HashProvider\bin\Debug\HashProvider.pdb
-D:\Dropbox\Coding\Projects\HashProvider\HashProvider\obj\Debug\HashProvider.csprojResolveAssemblyReference.cache
-D:\Dropbox\Coding\Projects\HashProvider\HashProvider\obj\Debug\HashProvider.dll
-D:\Dropbox\Coding\Projects\HashProvider\HashProvider\obj\Debug\HashProvider.pdb
