@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Security\SHA256L100HashProvider.cs" />
+    <Compile Include="Security\RIPEMD160HashProvider.cs" />
+    <Compile Include="Security\SHA512HashProvider.cs" />
+    <Compile Include="Security\SHA384HashProvider.cs" />
+    <Compile Include="Security\SHA256HashProvider.cs" />
     <Compile Include="Security\SHA1HashProvider.cs" />
-    <Compile Include="Security\MD5HashProvider.cs" />
     <Compile Include="Security\HashProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

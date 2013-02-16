@@ -4,15 +4,15 @@ using System.Security.Cryptography;
 
 namespace HashProviderTest
 {
-    public class SHA1HashProvider : HashProvider
+    public class SHA512HashProvider : HashProvider
     {
-        private SHA1Managed hashAlgorithm = new SHA1Managed();
+        private SHA512Managed hashAlgorithm = new SHA512Managed();
 
         public override int HashLength
         {
             get { return hashAlgorithm.HashSize; }
         }
-        
+
         public override byte[] GetSalt()
         {
             return GetSalt(SaltLength);
@@ -28,7 +28,7 @@ namespace HashProviderTest
 
         public override byte[] GetHash(byte[] data, byte[] salt)
         {
-            var combined = data.Concat(salt).ToArray();
+            var combined = data.Concat(salt).ToArray();            
             return hashAlgorithm.ComputeHash(combined);
         }
 

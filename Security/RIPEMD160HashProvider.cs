@@ -4,9 +4,9 @@ using System.Security.Cryptography;
 
 namespace HashProviderTest
 {
-    public class SHA1HashProvider : HashProvider
+    public class RIPEMD160HashProvider : HashProvider
     {
-        private SHA1Managed hashAlgorithm = new SHA1Managed();
+        private RIPEMD160Managed hashAlgorithm = new RIPEMD160Managed();
 
         public override int HashLength
         {

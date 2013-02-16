@@ -4,10 +4,15 @@ using System.Security.Cryptography;
 
 namespace HashProviderTest
 {
-    public class MD5HashProvider : HashProvider
+    public class SHA256HashProvider : HashProvider
     {
-        private HashAlgorithm hashAlgorithm = new MD5CryptoServiceProvider();
+        private SHA256Managed hashAlgorithm = new SHA256Managed();
 
+        public override int HashLength
+        {
+            get { return hashAlgorithm.HashSize; }
+        }
+                
         public override byte[] GetSalt()
         {
             return GetSalt(SaltLength);
@@ -23,9 +28,8 @@ namespace HashProviderTest
 
         public override byte[] GetHash(byte[] data, byte[] salt)
         {
-            byte[] combined = data.Concat(salt).ToArray();
-            byte[] hash = hashAlgorithm.ComputeHash(combined);
-            return hash;
+            var combined = data.Concat(salt).ToArray();            
+            return hashAlgorithm.ComputeHash(combined);
         }
 
         public override string GetHash(string data, byte[] salt)
