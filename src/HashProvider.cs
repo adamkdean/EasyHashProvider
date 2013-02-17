@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace HashProviderTest
+namespace HashProvider
 {
     public abstract class HashProvider
     {

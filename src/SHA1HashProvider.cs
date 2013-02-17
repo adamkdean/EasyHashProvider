@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace HashProviderTest
+namespace HashProvider
 {
     public class SHA1HashProvider : HashProvider
     {
