@@ -10,11 +10,6 @@ Use one of the built in hash providers:
     var salt = provider.GetSalt(); // save this, you'll need it
     var hash = provider.GetHash("YourPassword", salt);
 
-Bear in mind that `provider.GetSalt()` returns `byte[]` not `string`, so if you want to save the salt as string, convert it like so:
-
-    var salt = provider.GetSalt(); // returns byte[]
-    var saltStr = provider.GetString(salt); // returns string
-
 You can also set the `SaltLength`, default is set to 8 characters, you can either change the value for all salts or just for a single salt.
 
     provider.SaltLength = 16; 
@@ -23,11 +18,6 @@ You can also set the `SaltLength`, default is set to 8 characters, you can eithe
 To get the length of the hash:
 
     var hashLength = provider.HashLength;
-
-To convert to/from bytes/strings:
-
-    var str = provider.GetString(bytes);
-    var bytes = provider.GetBytes(str);
 
 ## HashProviders
 
@@ -54,13 +44,11 @@ We extend `HashProvider`, which gives us a property and four methods that we hav
 
 `HashLength` should return the length of the hash when computed.
 
-`GetSalt()` should return a salt in the format `byte[]`, the default length is set in the property `SaltLength`.
+`GetSalt()` should return a salt as a `string`, the default length is set in the property `SaltLength`.
 
 `GetSalt(int length)` should return a salt of the length provided.
 
-`GetHash(byte[] data, byte[] salt)` should return a hash in the format `byte[]` from the data and salt provided.
-
-`GetHash(string data, byte[] salt)` should, for convenience, return a hash in string format.
+`GetHash(string data, string salt)` should return a hash in the format of a `string`.
 
 
     public class SHA1HashProvider : HashProvider
@@ -71,32 +59,26 @@ We extend `HashProvider`, which gives us a property and four methods that we hav
         {
             get { return hashAlgorithm.HashSize; }
         }
-            
-        public override byte[] GetSalt()
+
+        public override string GetSalt()
         {
             return GetSalt(SaltLength);
         }
 
-        public override byte[] GetSalt(int length)
+        public override string GetSalt(int length)
         {
             var buffer = new byte[length];
             Random random = new Random(DateTime.Now.Millisecond);
             random.NextBytes(buffer);
-            return buffer;
+            return BitConverter.ToString(buffer).Replace("-", "").ToLowerInvariant();
         }
 
-        public override byte[] GetHash(byte[] data, byte[] salt)
+        public override string GetHash(string data, string salt)
         {
-            var combined = data.Concat(salt).ToArray();
-            return hashAlgorithm.ComputeHash(combined);
-        }
-
-        public override string GetHash(string data, byte[] salt)
-        {
-            var dataBytes = GetBytes(data);
-            var hashBytes = GetHash(dataBytes, salt);
-            var hashString = GetString(hashBytes);
-            return hashString;
+            var combined = string.Format("{0}{1}", data, salt);
+            var bytes = Encoding.UTF8.GetBytes(combined);
+            var hash = hashAlgorithm.ComputeHash(bytes);
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
         }
     }
 
