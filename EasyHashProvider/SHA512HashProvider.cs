@@ -3,11 +3,11 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace HashProvider
+namespace EasyHashProvider
 {
-    public class SHA256HashProvider : HashProvider
+    public class SHA512HashProvider : HashProvider
     {
-        private SHA256Managed hashAlgorithm = new SHA256Managed();
+        private SHA512Managed hashAlgorithm = new SHA512Managed();
 
         public override int HashLength
         {

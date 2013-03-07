@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace HashProvider
+namespace EasyHashProvider
 {
     public class SHA256L100HashProvider : HashProvider
     {

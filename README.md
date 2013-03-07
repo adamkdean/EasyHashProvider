@@ -1,4 +1,4 @@
-# HashProvider
+# EasyHashProvider
 
 Secure, easy hash providers for password hashing/salting.
 

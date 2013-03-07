@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace HashProvider
+namespace EasyHashProvider
 {
     public abstract class HashProvider
     {
