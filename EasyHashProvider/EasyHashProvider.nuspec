@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Adam K Dean</authors>
+    <owners>Adam K Dean</owners>
+    <licenseUrl>https://github.com/Imdsm/EasyHashProvider/blob/master/LICENCE</licenseUrl>
+    <projectUrl>https://github.com/Imdsm/EasyHashProvider</projectUrl>
+    <iconUrl>http://i.imgur.com/XCL8ZAH.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>See GitHub for more info.</releaseNotes>
+    <copyright>Copyright 2013 Adam K Dean</copyright>
+    <tags>EasyAuth</tags>
+  </metadata>
+</package>
