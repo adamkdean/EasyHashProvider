@@ -2,6 +2,14 @@
 
 Secure, easy hash providers for password hashing/salting.
 
+## Install via NuGet
+
+EasyHashProvider is available as a NuGet package.  
+
+To install EasyHashProvider, run the following command in the Package Manager Console
+
+    PM> Install-Package EasyHashProvider
+
 ## How to use
 
 Use one of the built in hash providers:
